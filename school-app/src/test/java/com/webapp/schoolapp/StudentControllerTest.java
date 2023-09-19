@@ -45,7 +45,7 @@ public class StudentControllerTest {
 		student.setEmailId("c@mail.com");
 		when(studentService.createNewStudent(student)).thenReturn(1L);
 		
-		this.mockMvc.perform(post("/api/books")
+		this.mockMvc.perform(post("/api/students")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(student)))
 				.andExpect(status().isCreated())
