@@ -1,6 +1,6 @@
 package com.webapp.schoolapp;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -55,5 +55,4 @@ public class Student {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-}
 }
