@@ -20,6 +20,12 @@ public class StudentService {
 		return studentRepository.findAll();
 	}
 	
-
+	public Student getStudentById(Long id) {
+		Optional<Student> student = studentRepository.findById(id);
+		if(student.isEmpty()) {
+			throw new StudentNotFoundException(String.format("Student with id: " + id + " not found."));
+		}
+		return student.get();
+	}
 
 }
