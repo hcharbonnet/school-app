@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StudentService {
@@ -23,7 +24,7 @@ public class StudentService {
 	public Student getStudentById(Long id) {
 		Optional<Student> student = studentRepository.findById(id);
 		if(student.isEmpty()) {
-			throw new StudentNotFoundException(String.format("Student with id: " + id + " not found."));
+			throw new StudentNotFoundException("Student with id: " + id + " not found.");
 		}
 		return student.get();
 	}
@@ -31,4 +32,21 @@ public class StudentService {
 	public void deleteStudentById(Long id) {
 		studentRepository.deleteById(id);
 	}
+	
+	@Transactional
+	public Student updateStudent(Long id, Student student) {
+		Optional<Student> originalStudent = studentRepository.findById(id);
+		if(originalStudent.isEmpty()) {
+			throw new StudentNotFoundException("Student with id: " + id + " does not exist.");
+		}
+		Student editedStudent = originalStudent.get();
+		
+		editedStudent.setFirstName(student.getFirstName());
+		editedStudent.setLastName(student.getLastName());
+		editedStudent.setEmailId(student.getEmailId());
+
+		return editedStudent;
+		
+	}
+
 }
