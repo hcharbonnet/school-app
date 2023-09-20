@@ -21,7 +21,7 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	@PostMapping
+	@PostMapping("/{id}")
 	public ResponseEntity<Void> createdNewStudent(@Valid @RequestBody Student student, UriComponentsBuilder uriComponentsBuilder){
 		Long id = studentService.createNewStudent(student);
 		UriComponents uriComponents = uriComponentsBuilder.path("/api/students/{id}").buildAndExpand(id);
