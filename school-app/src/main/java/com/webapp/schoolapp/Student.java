@@ -1,18 +1,16 @@
 package com.webapp.schoolapp;
 
 import jakarta.persistence.Entity;
-import lombok.Data;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Data
 @Entity // Hibernate will recognize class as Entity and map to DB table
 public class Student {
 	@Id // Tells JPA this is primary key
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // tells Hibernate we don't want to create this value ourself 
-	private long id; // primary key
+	@GeneratedValue  // tells Hibernate we don't want to create this value ourself 
+	private long id; 
 	
 	@Column(nullable = false)
 	private String firstName;
@@ -23,8 +21,8 @@ public class Student {
 	@Column(nullable = true)
 	private String emailId;
 	
-public Student() {
-		
+	public Student() {
+			
 	}
 	
 	public Student(String firstName, String lastName, String emailId) {
