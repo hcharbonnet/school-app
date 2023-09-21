@@ -38,7 +38,7 @@ public class StudentControllerTest {
 	private ArgumentCaptor<Student> argumentCaptor;
 	
 	@Test
-	public void postStudentMethodCreatesNewStudent() throws JsonProcessingException, Exception {
+	public void postMethodCreatesNewStudent() throws JsonProcessingException, Exception {
 		Student student = new Student(); 
 		student.setId(0L);
 		student.setFirstName("Caroline");
@@ -57,4 +57,25 @@ public class StudentControllerTest {
 		assertThat(argumentCaptor.getValue().getLastName(), is("G"));
 		assertThat(argumentCaptor.getValue().getEmailId(), is("c@mail.com"));
 	}
+	
+	public void getMethodReturnsAllStudents() throws JsonProcessingException, Exception {
+		Student student = new Student(); 
+		student.setId(0L);
+		student.setFirstName("Caroline");
+		student.setLastName("G");
+		student.setEmailId("c@mail.com");
+		when(studentService.createNewStudent(argumentCaptor.capture())).thenReturn(0L);
+		
+		this.mockMvc.perform(post("/api/students")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(student)))
+				.andExpect(status().isCreated())
+				.andExpect(header().exists("Location"))
+				.andExpect(header().string("Location","http://localhost/api/students/0"));
+		
+		assertThat(argumentCaptor.getValue().getFirstName(), is("Caroline"));
+		assertThat(argumentCaptor.getValue().getLastName(), is("G"));
+		assertThat(argumentCaptor.getValue().getEmailId(), is("c@mail.com"));
+	}
+	
 }
