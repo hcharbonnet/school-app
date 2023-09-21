@@ -18,8 +18,21 @@ public class Student {
 	@Column(nullable = false)
 	private String lastName;
 	
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private String emailId;
+	
+	@Column(nullable = true)
+	private float[] grades;
+	
+	@Column(nullable = true)
+	private int absences;
+	
+	@Column(nullable = true)
+	private int bonusPts;
+	
+	@Column(nullable = true)
+	private String standing;
+	
 	
 	public Student() {
 			
@@ -30,6 +43,11 @@ public class Student {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		/*this.grades = grades;
+		this.absences = absences;
+		this.bonusPts = bonusPts;
+		this.standing = standing;*/
+		//, float[] grades, int absences, int bonusPts, String standing
 	}
 	public long getId() {
 		return id;
@@ -55,5 +73,28 @@ public class Student {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	
+	public float[] getGrades() {
+		return grades;
+	}
+	public void setGrades(float[] grades) {
+		this.grades = grades;
+	}
+	public int getAbsences() {
+		return absences;
+	}
+	public void setAbsences(int absences) {
+		this.absences = absences;
+	}
+	public int getBonusPts() {
+		return bonusPts;
+	}
+	public void setBonusPts(int bonusPts) {
+		this.bonusPts = bonusPts;
+	}
+	public String getStanding() {
+		return emailId;
+	}
+	public void setStanding(String standing) {
+		this.standing = standing;
+	}
 }
