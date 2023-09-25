@@ -38,4 +38,10 @@ public class ViewController {
 		studentService.updateStudent(student);
 		return "redirect:/students";
 	}
+	@DeleteMapping("/remove/{id}")
+	public String deleteStudent(@PathVariable Long id){
+		System.out.println("delete");
+		studentService.deleteStudentById(id);
+		return "redirect:/students";
+	}
 }
