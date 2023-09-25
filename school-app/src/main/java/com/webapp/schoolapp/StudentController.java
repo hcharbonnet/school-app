@@ -16,10 +16,10 @@ import org.springframework.http.ResponseEntity;
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
-	
+
 	@Autowired
 	private StudentService studentService;
-	
+
 	@PostMapping("/{id}")
 	public ResponseEntity<Void> createdNewStudent(@Valid @RequestBody Student student, UriComponentsBuilder uriComponentsBuilder){
 		Long id = studentService.createNewStudent(student);
@@ -48,6 +48,6 @@ public class StudentController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Student> udpateStudent(@PathVariable("id") Long id, @Valid @RequestBody Student student) {
-		return ResponseEntity.ok(studentService.updateStudent(id,student));
+		return ResponseEntity.ok(studentService.updateStudent(student));
 	}
 }

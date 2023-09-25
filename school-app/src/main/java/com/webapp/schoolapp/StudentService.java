@@ -34,10 +34,10 @@ public class StudentService {
 	}
 	
 	@Transactional
-	public Student updateStudent(Long id, Student student) {
-		Optional<Student> originalStudent = studentRepository.findById(id);
+	public Student updateStudent(Student student) {
+		Optional<Student> originalStudent = studentRepository.findById(student.getId());
 		if(originalStudent.isEmpty()) {
-			throw new StudentNotFoundException("Student with id: " + id + " does not exist.");
+			throw new StudentNotFoundException("Student with id: " + student.getId() + " does not exist.");
 		}
 		Student editedStudent = originalStudent.get();
 		

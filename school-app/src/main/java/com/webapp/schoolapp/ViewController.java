@@ -22,6 +22,20 @@ public class ViewController {
 	public String viewAllStudents(Model model) {
 		List<Student> students = studentService.getAllStudents();
 		model.addAttribute("students",students);
+		System.out.println("view");
 		return "all-students";
+	}
+	@GetMapping("/edit/{id}")
+	public String editStudent(@PathVariable Long id, Model model) {
+		System.out.println("edit");
+		Student student = studentService.getStudentById(id);
+		model.addAttribute("student", student);
+		return "edit";
+	}
+	@PostMapping("/save")
+	public String saveStudent(@ModelAttribute Student student) {
+		System.out.println("save");
+		studentService.updateStudent(student);
+		return "redirect:/students";
 	}
 }
