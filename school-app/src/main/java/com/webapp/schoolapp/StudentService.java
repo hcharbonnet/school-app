@@ -44,7 +44,7 @@ public class StudentService {
 		editedStudent.setFirstName(student.getFirstName());
 		editedStudent.setLastName(student.getLastName());
 		editedStudent.setEmailId(student.getEmailId());
-
+		editedStudent.setAbsences(student.getAbsences());
 		return editedStudent;
 		
 	}
