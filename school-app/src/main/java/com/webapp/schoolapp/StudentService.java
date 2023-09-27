@@ -34,18 +34,23 @@ public class StudentService {
 	}
 	
 	@Transactional
-	public Student updateStudent(Student student) {
-		Optional<Student> originalStudent = studentRepository.findById(student.getId());
+	public Student updateStudent(Student updatedStudent) {
+		// first check that the student exists
+		Optional<Student> originalStudent = studentRepository.findById(updatedStudent.getId());
 		if(originalStudent.isEmpty()) {
-			throw new StudentNotFoundException("Student with id: " + student.getId() + " does not exist.");
+			throw new StudentNotFoundException("Student with id: " + updatedStudent.getId() + " does not exist.");
 		}
-		Student editedStudent = originalStudent.get();
+		Student studentInDB = originalStudent.get();
+		// now update all the changes
+		studentInDB.setFirstName(updatedStudent.getFirstName());
+		studentInDB.setLastName(updatedStudent.getLastName());
+		studentInDB.setEmailId(updatedStudent.getEmailId());
+		studentInDB.setGrades(updatedStudent.getGrades());
+		studentInDB.setAbsences(updatedStudent.getAbsences());
+		studentInDB.setBonusPts(updatedStudent.getBonusPts());
+		studentInDB.setStanding(updatedStudent.getStanding());
 		
-		editedStudent.setFirstName(student.getFirstName());
-		editedStudent.setLastName(student.getLastName());
-		editedStudent.setEmailId(student.getEmailId());
-		editedStudent.setAbsences(student.getAbsences());
-		return editedStudent;
+		return studentInDB;
 		
 	}
 
