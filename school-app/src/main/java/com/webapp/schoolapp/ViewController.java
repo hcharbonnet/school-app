@@ -32,6 +32,20 @@ public class ViewController {
 		model.addAttribute("student", student);
 		return "edit";
 	}
+	@GetMapping("/add")
+	public String showAddPage(Model model) {
+		Student student = new Student();
+		model.addAttribute("student", student);
+		System.out.println("add");
+		return "add";  
+	}
+	@PostMapping("/add")
+	public String saveNewStudent(@ModelAttribute Student student) {
+		System.out.println("adding");
+		studentService.createNewStudent(student);
+		System.out.println("added");
+		return "redirect:/students";
+	}
 	@PostMapping("/save")
 	public String saveStudent(@ModelAttribute Student student) {
 		System.out.println("save");
