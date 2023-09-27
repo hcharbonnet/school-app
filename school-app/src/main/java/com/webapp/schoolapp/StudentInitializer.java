@@ -25,12 +25,11 @@ public class StudentInitializer implements CommandLineRunner{
 		String[] firstNames = {"Helen","Julie","Nate","Carolina","Meghan","Alex","Pooja","Neela","Navi","Pierre"};
 		String[] lastNames = {"C","D","G","B","W","Y","F","K","A","S"};
 		String[] emails = {"C@mail.com","D@mail.com","G@mail.com","B@mail.net","W@mail.edu","Y@mail.edu","F@mail.gov","K@mail.com","A@mail.net","S@mail.co"};
-		Integer[][] grades = {{90,91,93},{82,80,80},{82,80,80},{72,70,70},{82,80,80},{92,90,91},{82,80,80},{82,80,80},{82,80,80},{82,80,80}};
 		Integer[] abscences = {1,2,6,1,0,3,4,0,0,1};
 		Integer[] bonusPts = {1,2,6,1,0,3,4,0,0,1};
 		String[] standing = {"Exceeds Expectations","Meets Expectations","Meets Few Expectations","Fails to Meet Expectations","Exceeds Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations"};
 		for(int i=0; i<firstNames.length; i++) {
-			Student student = new Student(firstNames[i],lastNames[i],emails[i], grades[i], abscences[i], bonusPts[i], standing[i]);
+			Student student = new Student(firstNames[i],lastNames[i],emails[i], abscences[i], bonusPts[i], standing[i]);
 			studentRepository.save(student);
 		}
 

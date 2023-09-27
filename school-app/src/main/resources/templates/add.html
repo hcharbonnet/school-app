@@ -19,17 +19,12 @@
             <div class="col-md-10">
                 <form th:object="${student}" th:action="@{/add}" method="post">
 					<table>
-						<tr><td>Student Id</td>
-							<td><span th:text="*{id}"></span></td>
-							<input type="hidden" th:field="*{id}"/></tr>
-						<tr><td>First Name</td>
+					<tr><td>First Name</td>
 							<td><input type="text" name="firstName" th:field="*{firstName}"/></td> </tr>
 						<tr><th>Last Name</th>
 							<td><input type="text" name="lastName" th:field="*{lastName}"/></td> </tr>
                         <tr><th>Email</th>
 							<td><input type="text" name="emailId" th:field="*{emailId}"/></td> </tr>
-                        <tr><th>Grades</th>
-                        	<td><input type="text" name="grades" th:field="*{grades}"/></td> </tr>
                         <tr><th>Absences</th>
 							<td><input type="text" name="absences" th:field="*{absences}"/></td> </tr>
                         <tr><th>Bonus Points</th>

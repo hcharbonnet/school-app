@@ -22,9 +22,6 @@ public class Student {
 	private String emailId;
 	
 	@Column(nullable = true)
-	private Integer[] grades;
-	
-	@Column(nullable = true)
 	private int absences;
 	
 	@Column(nullable = true)
@@ -38,12 +35,11 @@ public class Student {
 			
 	}
 	
-	public Student(String firstName, String lastName, String emailId, Integer[] grades, int absences, int bonusPts, String standing) {
+	public Student(String firstName, String lastName, String emailId, int absences, int bonusPts, String standing) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
-		this.grades = grades;
 		this.absences = absences;
 		this.bonusPts = bonusPts;
 		this.standing = standing;
@@ -72,12 +68,6 @@ public class Student {
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
-	}
-	public Integer[] getGrades() {
-		return grades;
-	}
-	public void setGrades(Integer[] grades) {
-		this.grades = grades;
 	}
 	public int getAbsences() {
 		return absences;
