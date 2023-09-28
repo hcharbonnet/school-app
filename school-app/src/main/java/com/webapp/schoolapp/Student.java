@@ -36,6 +36,8 @@ public class Student {
 	@Column(nullable = true)
 	private String standing;
 	
+	@Column(nullable = false)
+	private String stringBirthDate;
 	
 	public Student() {
 			
@@ -50,6 +52,7 @@ public class Student {
 		this.absences = absences;
 		this.tardy = tardy;
 		this.standing = standing;
+		this.stringBirthDate = "";
 		
 	}
 	public long getId() {
@@ -73,7 +76,7 @@ public class Student {
 	public Date getBirthDate() {
 		return birthDate;
 	}
-	public void setbBirthDate(Date birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getEmailId() {
@@ -99,5 +102,11 @@ public class Student {
 	}
 	public void setStanding(String standing) {
 		this.standing = standing;
+	}
+	public void setStringBirthDate(String stringBirthDate) {
+		this.stringBirthDate = stringBirthDate;
+	}
+	public String getStringBirthDate() {
+		return stringBirthDate;
 	}
 }

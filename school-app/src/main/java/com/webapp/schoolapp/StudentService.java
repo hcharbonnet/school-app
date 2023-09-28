@@ -44,6 +44,7 @@ public class StudentService {
 		// now update all the changes
 		studentInDB.setFirstName(updatedStudent.getFirstName());
 		studentInDB.setLastName(updatedStudent.getLastName());
+		studentInDB.setBirthDate(updatedStudent.getBirthDate());
 		studentInDB.setEmailId(updatedStudent.getEmailId());
 		studentInDB.setAbsences(updatedStudent.getAbsences());
 		studentInDB.setTardy(updatedStudent.getTardy());

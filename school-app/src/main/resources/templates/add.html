@@ -24,7 +24,7 @@
 						<tr><th>Last Name *</th>
 							<td><input type="text" name="lastName" th:field="*{lastName}"/></td> </tr>
 						<tr><th>Date of Birth *</th>
-							<td><input type="date" name="birthDate" placeholder="MM/DD/YYYY" th:field="*{birthDate}" pattern="\d{2}/\d{2}/\d{4}" required/></td> </tr>
+							<td><input type="date" name="birthDate" placeholder="MM/dd/yyyy" th:field="*{stringBirthDate}" pattern="\d{2}/\d{2}/\d{4}" required/></td> </tr>
                         <tr><th>Parent Email</th>
 							<td><input type="text" name="emailId" th:field="*{emailId}"/></td> </tr>
                         <tr><th>Absences</th>
