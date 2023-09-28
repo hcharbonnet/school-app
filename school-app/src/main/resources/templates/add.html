@@ -19,21 +19,23 @@
             <div class="col-md-10">
                 <form th:object="${student}" th:action="@{/add}" method="post">
 					<table>
-					<tr><td>First Name</td>
+					<tr><td>First Name *</td>
 							<td><input type="text" name="firstName" th:field="*{firstName}"/></td> </tr>
-						<tr><th>Last Name</th>
+						<tr><th>Last Name *</th>
 							<td><input type="text" name="lastName" th:field="*{lastName}"/></td> </tr>
-                        <tr><th>Email</th>
+						<tr><th>Date of Birth *</th>
+							<td><input type="date" name="birthDate" placeholder="MM/DD/YYYY" th:field="*{birthDate}" pattern="\d{2}/\d{2}/\d{4}" required/></td> </tr>
+                        <tr><th>Parent Email</th>
 							<td><input type="text" name="emailId" th:field="*{emailId}"/></td> </tr>
                         <tr><th>Absences</th>
 							<td><input type="text" name="absences" th:field="*{absences}"/></td> </tr>
-                        <tr><th>Bonus Points</th>
-							<td><input type="text" name="bonusPts" th:field="*{bonusPts}"/></td> </tr>
+                        <tr><th>Tardies</th>
+							<td><input type="text" name="tardy" th:field="*{tardy}"/></td> </tr>
                         <tr><th>Standing</th>
     						<td><input type="text" name="standing" th:field="*{standing}"/></td> </tr>
 					</table>
 					<br>
-					<button type="submit"/>Create Student Record</button>
+					<button type="submit"  class="btn btn-primary fas ml-2"/>Create Student Record</button>
 				</form>
             </div>
         </div>

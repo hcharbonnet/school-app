@@ -26,17 +26,19 @@
 							<td><input type="text" name="firstName" th:field="*{firstName}"/></td> </tr>
 						<tr><th>Last Name</th>
 							<td><input type="text" name="lastName" th:field="*{lastName}"/></td> </tr>
-                        <tr><th>Email</th>
+						<tr><th>Date of Birth *</th>
+							<td><input type="date" name="birthDate" th:value="${#dates.format(student.birthDate,'MM/dd/YYYY')}" pattern="\d{2}/\d{2}/\d{4}" required/></td> </tr>
+ 						<tr><th>Parent Email</th>
 							<td><input type="text" name="emailId" th:field="*{emailId}"/></td> </tr>
                         <tr><th>Absences</th>
 							<td><input type="text" name="absences" th:field="*{absences}"/></td> </tr>
-                        <tr><th>Bonus Points</th>
-							<td><input type="text" name="bonusPts" th:field="*{bonusPts}"/></td> </tr>
+                        <tr><th>Tardies</th>
+							<td><input type="text" name="tardy" th:field="*{tardy}"/></td> </tr>
                         <tr><th>Standing</th>
     						<td><input type="text" name="standing" th:field="*{standing}"/></td> </tr>
 					</table>
 					<br>
-					<button type="submit"/>Update</button>
+					<button type="submit"  class="btn btn-primary fas ml-2"/>Update</button>
 				</form>
             </div>
         </div>

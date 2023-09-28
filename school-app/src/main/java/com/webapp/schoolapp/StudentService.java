@@ -46,7 +46,7 @@ public class StudentService {
 		studentInDB.setLastName(updatedStudent.getLastName());
 		studentInDB.setEmailId(updatedStudent.getEmailId());
 		studentInDB.setAbsences(updatedStudent.getAbsences());
-		studentInDB.setBonusPts(updatedStudent.getBonusPts());
+		studentInDB.setTardy(updatedStudent.getTardy());
 		studentInDB.setStanding(updatedStudent.getStanding());
 		
 		return studentInDB;

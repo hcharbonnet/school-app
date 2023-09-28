@@ -1,6 +1,9 @@
 package com.webapp.schoolapp;
 
 import jakarta.persistence.Entity;
+
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,13 +22,16 @@ public class Student {
 	private String lastName;
 	
 	@Column(nullable = false)
+	private Date birthDate;
+	
+	@Column(nullable = false)
 	private String emailId;
 	
 	@Column(nullable = true)
 	private int absences;
 	
 	@Column(nullable = true)
-	private int bonusPts;
+	private int tardy;
 	
 	@Column(nullable = true)
 	private String standing;
@@ -35,13 +41,14 @@ public class Student {
 			
 	}
 	
-	public Student(String firstName, String lastName, String emailId, int absences, int bonusPts, String standing) {
+	public Student(String firstName, String lastName, Date birthDate, String emailId, int absences, int tardy, String standing) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.birthDate = birthDate;
 		this.emailId = emailId;
 		this.absences = absences;
-		this.bonusPts = bonusPts;
+		this.tardy = tardy;
 		this.standing = standing;
 		
 	}
@@ -63,6 +70,12 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setbBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
 	public String getEmailId() {
 		return emailId;
 	}
@@ -75,11 +88,11 @@ public class Student {
 	public void setAbsences(int absences) {
 		this.absences = absences;
 	}
-	public int getBonusPts() {
-		return bonusPts;
+	public int getTardy() {
+		return tardy;
 	}
-	public void setBonusPts(int bonusPts) {
-		this.bonusPts = bonusPts;
+	public void setTardy(int tardy) {
+		this.tardy = tardy;
 	}
 	public String getStanding() {
 		return standing;
