@@ -30,8 +30,9 @@ public class StudentInitializer implements CommandLineRunner{
 		ArrayList<Date> birthDays = generateDates();
 		Integer[] abscences = {1,2,6,1,0,3,4,0,0,1};
 		Integer[] tardy = {0,0,4,5,0,1,1,0,0,1};
-		String[] standing = {"Exceeds Expectations","Meets Expectations","Meets Few Expectations","Fails to Meet Expectations","Exceeds Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations"};
-		for(int i=0; i<firstNames.length; i++) {
+		//String[] standing = {"Exceeds Expectations","Meets Expectations","Meets Few Expectations","Fails to Meet Expectations","Exceeds Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations","Meets Expectations"};
+		Standing[] standing = {Standing.EXCEEDS,Standing.MEETS, Standing.FAILS, Standing.FAILS, Standing.MEETS, Standing.FEW, Standing.MEETS, Standing.MEETS,Standing.EXCEEDS,Standing.MEETS};
+for(int i=0; i<firstNames.length; i++) {
 			Student student = new Student(firstNames[i],lastNames[i], birthDays.get(i), emails[i], abscences[i], tardy[i], standing[i]);
 			studentRepository.save(student);
 		}

@@ -22,6 +22,11 @@ public class ViewController {
 	@Autowired
 	private StudentService studentService;
 	
+	@ModelAttribute("standings")
+	public Standing[] standing() {
+		return Standing.values();
+	}
+	
 	@GetMapping("/students")
 	public String viewAllStudents(Model model) {
 		List<Student> students = studentService.getAllStudents();

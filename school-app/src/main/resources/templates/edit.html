@@ -26,16 +26,25 @@
 							<td><input type="text" name="firstName" th:field="*{firstName}"/></td> </tr>
 						<tr><th>Last Name *</th>
 							<td><input type="text" name="lastName" th:field="*{lastName}"/></td> </tr>
+						<tr><th><br></th></tr>
 						<tr><th>Date of Birth *</th>
 							<td><input type="text" name="birthDate" th:field="*{stringBirthDate}" pattern="\d{2}/\d{2}/\d{4}" required/></td> </tr>
  						<tr><th>Parent Email</th>
 							<td><input type="text" name="emailId" th:field="*{emailId}"/></td> </tr>
+ 						<tr><th><br></th></tr>
                         <tr><th>Absences</th>
 							<td><input type="text" name="absences" th:field="*{absences}"/></td> </tr>
                         <tr><th>Tardies</th>
 							<td><input type="text" name="tardy" th:field="*{tardy}"/></td> </tr>
-                        <tr><th>Standing</th>
-    						<td><input type="text" name="standing" th:field="*{standing}"/></td> </tr>
+ 						<tr><th><br></th></tr>
+                       <tr><div class="form-group"><th><label for="standing">Standing</label></th>
+    						<td>
+								<div th:each="standingOption : ${standings}">
+									<input type="radio" th:id="'stand-' + ${standingOption}" th:name="standing" th:value="${standingOption}" th:checked="${student.standing == standingOption}" th:field="*{standing}"/>
+									<label th:for="'stand-' + ${standingOption}" th:text="${standingOption.description}">Standing</label>
+								</div>
+							</div></td> 
+						</tr>
 					</table>
 					<br>
 					<button type="submit"  class="btn btn-primary fas ml-2"/>Update</button>

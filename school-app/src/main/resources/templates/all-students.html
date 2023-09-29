@@ -45,7 +45,7 @@
                                 <td th:text="${student.emailId}"></td>
                                 <td th:text="${student.absences}"> </td>
                                 <td th:text="${student.tardy}"> </td>
-                                <td th:text="${student.standing}"> </td>
+                                <td th:text="${student.standing.description}"> </td>
                                 <td>
                                     <a th:href="@{/edit/{id}(id=${student.id})}" class="btn btn-primary fas ml-2">edit</a>
                                 </td>

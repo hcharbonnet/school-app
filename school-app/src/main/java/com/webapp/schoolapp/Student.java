@@ -34,7 +34,7 @@ public class Student {
 	private int tardy;
 	
 	@Column(nullable = true)
-	private String standing;
+	private Standing standing;
 	
 	@Column(nullable = false)
 	private String stringBirthDate;
@@ -43,7 +43,7 @@ public class Student {
 			
 	}
 	
-	public Student(String firstName, String lastName, Date birthDate, String emailId, int absences, int tardy, String standing) {
+	public Student(String firstName, String lastName, Date birthDate, String emailId, int absences, int tardy, Standing standing) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -97,10 +97,10 @@ public class Student {
 	public void setTardy(int tardy) {
 		this.tardy = tardy;
 	}
-	public String getStanding() {
+	public Standing getStanding() {
 		return standing;
 	}
-	public void setStanding(String standing) {
+	public void setStanding(Standing standing) {
 		this.standing = standing;
 	}
 	public void setStringBirthDate(String stringBirthDate) {
