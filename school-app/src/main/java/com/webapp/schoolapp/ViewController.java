@@ -42,15 +42,10 @@ public class ViewController {
 	@PostMapping("/save")
 	public String saveStudent(@RequestParam("stringBirthDate") String dateString, @ModelAttribute Student student) {
 		System.out.println("save");
-		System.out.println(student.getStringBirthDate());
-		System.out.println(dateString);
-
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 			Date dateOfBirth = dateFormat.parse(dateString);
-			System.out.println(dateOfBirth);
 			student.setBirthDate(dateOfBirth);
-			System.out.println(student.getBirthDate());
 
 		} catch (ParseException e) {
 			return "error";
